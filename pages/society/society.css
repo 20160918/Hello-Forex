@@ -1,0 +1,23 @@
+.content{
+	background-color: #FFFFFF;
+}
+.type{
+  display: flex;
+  flex-direction: row;
+}
+.select{
+  font-size: 16px;
+  color: #1797D4;
+  width:33%;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 5rpx solid #1797D4;
+}
+.normal {
+  width:33%;
+  font-size: 16px;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+}
