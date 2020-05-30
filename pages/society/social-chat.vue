@@ -82,6 +82,18 @@
 					let data = await this.joinHistoryMsg();
 					console.log('----- 模拟数据格式，供参考 -----');
 					console.log(data);	// 查看请求返回的数据结构 
+					// if (data.length != 0) {
+					// 	this.hideLoadTips();
+					// 	// 获取待滚动元素选择器，解决插入数据后，滚动条定位时使用
+					// 	let selector = '';			
+					// 	if(this.ajax.page>1){
+					// 		// 非第一页，则取历史消息数据的第一条信息元素
+					// 		selector = `#msg-${this.talkList[0].chat_id}`;
+					// 	}else{
+					// 		// 第一页，则取当前消息数据的最后一条信息元素
+					// 		selector = `#msg-${data[data.length-1].chat_id}`;
+					// 	}
+					// }
 					// 获取待滚动元素选择器，解决插入数据后，滚动条定位时使用
 					let selector = '';			
 					if(this.ajax.page>1){
@@ -98,6 +110,9 @@
 						this.arrs = [];
 						// 设置当前滚动的位置
 						this.setPageScrollTo(selector);
+						// if (this.talkList.length != 0) {
+						// 	this.hideLoadTips(true);
+						// }
 						this.hideLoadTips(true);
 						if(data.length < this.ajax.rows){
 							// 当前消息数据条数小于请求要求条数时，则无更多消息，不再允许请求。

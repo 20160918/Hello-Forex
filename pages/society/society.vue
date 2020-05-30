@@ -146,7 +146,7 @@ import uniCard from '@/components/uni-card/uni-card.vue';
 export default {
 	data() {
 		return {
-			flag: 1,
+			flag: 0,
 			
 			friendList: {},
 			friendListA:[],
@@ -315,7 +315,7 @@ export default {
 								console.log("b的经纬度"+this.longitudeB +' '+this.latitudeB );
 								console.log("距离："+this.GetDistance(this.latitudeA, this.longitudeA, this.latitudeB, this.longitudeB));
 								
-								if(this.GetDistance(this.latitudeA, this.longitudeA, this.latitudeB, this.longitudeB) <= 200){
+								if(this.GetDistance(this.latitudeA, this.longitudeA, this.latitudeB, this.longitudeB) <= 1000){
 									
 									// var student = new Object();
 									this.student.stu_account =  res.data[0].stu_account; 
@@ -373,14 +373,16 @@ export default {
 					url: 'http://127.0.0.1:5000/secondrecommend2',
 					method: 'POST',
 					data: {
+						stu_account: this.userName,
 						stu_interest: this.interest,
-						stu_account: this.userName
 					},
 					header: {
 						'content-type': 'application/json',
 						chartset: 'utf-8'
 					},
 					success: res => {
+						console.log("测试++++++++++++++++++++++++++++++++++++");
+						console.log(res.data);
 						this.studentlistsecond = res.data;
 						console.log("除自己以外的和自己兴趣相投的所有学生");
 						console.log(this.studentlistsecond);
